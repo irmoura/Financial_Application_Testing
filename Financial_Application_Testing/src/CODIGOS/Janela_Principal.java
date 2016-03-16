@@ -5,6 +5,9 @@
  */
 package CODIGOS;
 
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -95,6 +98,21 @@ public class Janela_Principal extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
+        KeyboardFocusManager.getCurrentKeyboardFocusManager()
+            .addKeyEventDispatcher(new KeyEventDispatcher() {
+                @Override
+                public boolean dispatchKeyEvent(KeyEvent event) {
+                    if(event.getID() == KeyEvent.KEY_RELEASED 
+                       && event.getKeyCode() == KeyEvent.VK_F5){
+                        Tela_de_Venda obj = new Tela_de_Venda();
+                        JanelaInternaPrincipal.add(obj);
+                        obj.setVisible(true);
+                           return true;
+                     }
+                     return false;
+                }
+        }); 
+        
         this.setExtendedState(MAXIMIZED_BOTH);//DEFINE A JANELA PARA INICIAR MAXIMIZADA
         
     }//GEN-LAST:event_formWindowOpened
@@ -146,7 +164,7 @@ public class Janela_Principal extends javax.swing.JFrame {
                 Password psw = new Password();
                 
                 while(!senha.equals(psw.senha)){
-                    senha = JOptionPane.showInputDialog(null,"Digite a Senha do Administrador ","Autenticação Necessária",JOptionPane.WARNING_MESSAGE);
+                    senha = psw.senha;//JOptionPane.showInputDialog(null,"Digite a Senha do Administrador ","Autenticação Necessária",JOptionPane.WARNING_MESSAGE);
                     
                     if(!senha.equals(psw.senha)){
                         JOptionPane.showMessageDialog(null,"Senha incorreta, tente novamente","Aviso",JOptionPane.ERROR_MESSAGE);

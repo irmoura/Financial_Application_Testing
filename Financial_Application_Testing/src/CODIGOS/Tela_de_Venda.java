@@ -20,20 +20,6 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                   quantidade = 0, 
                   Total = 0;
     
-    public static void Troco(double val_prod,double quantidade,double total,double val_pago){
-        
-        total = val_prod * quantidade;
-        
-        if(val_pago >= total){
-            troco = valor_pago - total;
-        }
-        else
-        if(val_pago < total){
-            JOptionPane.showMessageDialog(null,"O valor pago não é suficiente");
-        }
-        
-    }
-    
     /**
      * Creates new form Tela_de_Venda
      */
@@ -106,32 +92,34 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Txt_Val_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Txt_Val_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Txt_Val_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Botao_Ok)
-                                .addGap(35, 35, 35)))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
+                            .addGap(56, 56, 56)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel4)
-                                .addComponent(jLabel5))
-                            .addGap(50, 50, 50)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Txt_Qnt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Txt_Val_Prod, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(136, Short.MAX_VALUE))
+                                .addComponent(Txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Txt_Val_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Botao_Ok)
+                .addGap(168, 168, 168))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,17 +162,16 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
 
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
         // TODO add your handling code here:
-        
-       valor_do_produto = Double.parseDouble(Txt_Val_Prod.getText());
+       if(!Txt_Val_Prod.getText().equals("")){
+           valor_do_produto = Double.parseDouble(Txt_Val_Prod.getText());
+       }
        quantidade = Double.parseDouble(Txt_Qnt.getText());
-       valor_pago = Double.parseDouble(Txt_Val_Pago.getText());
-       Total = Double.parseDouble(Txt_Total.getText());
-       
-       Troco(valor_do_produto,quantidade,Total, valor_pago);
-       Total = valor_do_produto*quantidade;
-       
-       Txt_Val_Troco.setText(""+troco);
-       Txt_Total.setText(""+1);
+       if(Txt_Val_Pago.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite o valor pago");
+       }
+       if(!Txt_Val_Pago.getText().equals("")){
+           valor_pago = Double.parseDouble(Txt_Val_Pago.getText());
+       }   
         
     }//GEN-LAST:event_Botao_OkActionPerformed
 

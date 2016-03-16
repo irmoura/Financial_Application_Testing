@@ -7,6 +7,9 @@ package CODIGOS;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,6 +83,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         jLabel3.setText("Troco");
 
         Botao_Ok.setText("Ok");
+        Botao_Ok.setToolTipText("Ok - ENTER");
         Botao_Ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Botao_OkActionPerformed(evt);
@@ -186,6 +190,21 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         Dimension d = this.getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);//DEFINE A JANELA INTERNA CENTRALIZADA
         
+        KeyboardFocusManager.getCurrentKeyboardFocusManager()
+            .addKeyEventDispatcher(new KeyEventDispatcher() {
+                @Override
+                public boolean dispatchKeyEvent(KeyEvent event) {
+                    if(event.getID() == KeyEvent.KEY_RELEASED 
+                       && event.getKeyCode() == KeyEvent.VK_ENTER){
+                        
+                        Botao_OkActionPerformed(null);
+                        
+                           return true;
+                     }
+                     return false;
+                }
+        }); 
+        
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
@@ -214,7 +233,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
            Texto_Valor_Pago.setBackground(Color.red);
            Texto_Troco.setText("");
            JOptionPane.showMessageDialog(null,"O valor pago não é suficiente"+
-                   "\nFalta : "+(total-valor_pago));
+                   "\nFalta R$:"+(total-valor_pago),"Pagamento Insuficiente",JOptionPane.WARNING_MESSAGE);
        }
        
     }//GEN-LAST:event_Botao_OkActionPerformed

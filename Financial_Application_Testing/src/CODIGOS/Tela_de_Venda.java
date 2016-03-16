@@ -18,7 +18,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                   valor_pago = 0,
                   troco = 0, 
                   quantidade = 0, 
-                  Total = 0;
+                  total = 0;
     
     /**
      * Creates new form Tela_de_Venda
@@ -36,16 +36,16 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Txt_Val_Prod = new javax.swing.JTextField();
-        Txt_Val_Pago = new javax.swing.JTextField();
-        Txt_Val_Troco = new javax.swing.JTextField();
+        Texto_Valor_Do_Produto = new javax.swing.JTextField();
+        Texto_Valor_Pago = new javax.swing.JTextField();
+        Texto_Troco = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Botao_Ok = new javax.swing.JButton();
-        Txt_Qnt = new javax.swing.JTextField();
+        Texto_Quantidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        Txt_Total = new javax.swing.JTextField();
+        Texto_Total = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -68,6 +68,8 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
             }
         });
 
+        Texto_Troco.setEditable(false);
+
         jLabel1.setText("Valor do Produto");
 
         jLabel2.setText("Valor Pago");
@@ -81,9 +83,11 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
             }
         });
 
-        Txt_Qnt.setText("1");
+        Texto_Quantidade.setText("1");
 
         jLabel4.setText("Quantidade");
+
+        Texto_Total.setEditable(false);
 
         jLabel5.setText("Total");
 
@@ -97,7 +101,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                         .addGap(109, 109, 109)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Txt_Val_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Texto_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(56, 56, 56)
@@ -107,14 +111,14 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel1))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Txt_Qnt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Txt_Val_Prod, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Texto_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Texto_Valor_Do_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Texto_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Txt_Val_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Texto_Valor_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -126,23 +130,23 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Val_Prod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texto_Valor_Do_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Qnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texto_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texto_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Val_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texto_Valor_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Val_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Texto_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Botao_Ok)
@@ -162,27 +166,41 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
 
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
         // TODO add your handling code here:
-       if(!Txt_Val_Prod.getText().equals("")){
-           valor_do_produto = Double.parseDouble(Txt_Val_Prod.getText());
+       if(!Texto_Valor_Do_Produto.getText().equals("")){
+           valor_do_produto = Double.parseDouble(Texto_Valor_Do_Produto.getText());
        }
-       quantidade = Double.parseDouble(Txt_Qnt.getText());
-       if(Txt_Val_Pago.getText().equals("")){
+       quantidade = Double.parseDouble(Texto_Quantidade.getText());
+       if(Texto_Valor_Pago.getText().equals("")){
            JOptionPane.showMessageDialog(null,"Digite o valor pago");
        }
-       if(!Txt_Val_Pago.getText().equals("")){
-           valor_pago = Double.parseDouble(Txt_Val_Pago.getText());
+       if(!Texto_Valor_Pago.getText().equals("")){
+           valor_pago = Double.parseDouble(Texto_Valor_Pago.getText());
        }   
-        
+       
+       total = valor_do_produto*quantidade;
+       troco = valor_pago - total;
+       
+       Texto_Total.setText(""+total);
+       
+       if(valor_pago >= total){
+            Texto_Troco.setText(""+troco);
+       }
+       else
+       if(valor_pago < total){
+           JOptionPane.showMessageDialog(null,"O valor pago não é suficiente"+
+                   "\nFalta : "+(total-valor_pago));
+       }
+       
     }//GEN-LAST:event_Botao_OkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botao_Ok;
-    private javax.swing.JTextField Txt_Qnt;
-    private javax.swing.JTextField Txt_Total;
-    private javax.swing.JTextField Txt_Val_Pago;
-    private javax.swing.JTextField Txt_Val_Prod;
-    private javax.swing.JTextField Txt_Val_Troco;
+    private javax.swing.JTextField Texto_Quantidade;
+    private javax.swing.JTextField Texto_Total;
+    private javax.swing.JTextField Texto_Troco;
+    private javax.swing.JTextField Texto_Valor_Do_Produto;
+    private javax.swing.JTextField Texto_Valor_Pago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

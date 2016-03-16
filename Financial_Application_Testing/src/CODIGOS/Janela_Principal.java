@@ -95,6 +95,11 @@ public class Janela_Principal extends javax.swing.JFrame {
                 
                 while(!senha.equals(psw.senha)){
                     senha = JOptionPane.showInputDialog(null,"Digite a Senha do Administrador ","Autenticação Necessária",JOptionPane.WARNING_MESSAGE);
+                    
+                    if(!senha.equals(psw.senha)){
+                        JOptionPane.showMessageDialog(null,"Senha incorreta, tente novamente","Aviso",JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                 }
                 
                 new Janela_Principal().setVisible(true);

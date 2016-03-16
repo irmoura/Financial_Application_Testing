@@ -5,12 +5,16 @@
  */
 package CODIGOS;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mael
  */
 public class Janela_Principal extends javax.swing.JFrame {
-
+    
+    static String senha = "";
+    
     /**
      * Creates new form Janela_Principal
      */
@@ -86,7 +90,16 @@ public class Janela_Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
+                Password psw = new Password();
+                
+                while(!senha.equals(psw.senha)){
+                    senha = JOptionPane.showInputDialog(null,"Digite a Senha do Administrador ","Autenticação Necessária",JOptionPane.WARNING_MESSAGE);
+                }
+                
                 new Janela_Principal().setVisible(true);
+
+                
             }
         });
     }

@@ -38,6 +38,9 @@ public class Janela_Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu_Arquivo = new javax.swing.JMenu();
         Item_Venda_Direta = new javax.swing.JMenuItem();
+        Item_Clientes = new javax.swing.JMenuItem();
+        Item_Fornecedores = new javax.swing.JMenuItem();
+        Item_Estoque = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,6 +75,15 @@ public class Janela_Principal extends javax.swing.JFrame {
             }
         });
         Menu_Arquivo.add(Item_Venda_Direta);
+
+        Item_Clientes.setText("Clientes");
+        Menu_Arquivo.add(Item_Clientes);
+
+        Item_Fornecedores.setText("Fornecedores");
+        Menu_Arquivo.add(Item_Fornecedores);
+
+        Item_Estoque.setText("Estoque");
+        Menu_Arquivo.add(Item_Estoque);
 
         jMenuBar1.add(Menu_Arquivo);
 
@@ -195,6 +207,9 @@ public class Janela_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Item_Clientes;
+    private javax.swing.JMenuItem Item_Estoque;
+    private javax.swing.JMenuItem Item_Fornecedores;
     private javax.swing.JMenuItem Item_Venda_Direta;
     private javax.swing.JDesktopPane JanelaInternaPrincipal;
     private javax.swing.JMenu Menu_Arquivo;

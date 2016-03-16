@@ -31,7 +31,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        JanelaInternaPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu_Arquivo = new javax.swing.JMenu();
         Item_Venda_Direta = new javax.swing.JMenuItem();
@@ -44,14 +44,14 @@ public class Janela_Principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JanelaInternaPrincipalLayout = new javax.swing.GroupLayout(JanelaInternaPrincipal);
+        JanelaInternaPrincipal.setLayout(JanelaInternaPrincipalLayout);
+        JanelaInternaPrincipalLayout.setHorizontalGroup(
+            JanelaInternaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JanelaInternaPrincipalLayout.setVerticalGroup(
+            JanelaInternaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
@@ -81,11 +81,11 @@ public class Janela_Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(JanelaInternaPrincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(JanelaInternaPrincipal)
         );
 
         pack();
@@ -95,7 +95,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        
+        this.setExtendedState(MAXIMIZED_BOTH);//DEFINE A JANELA PARA INICIAR MAXIMIZADA
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -106,7 +106,9 @@ public class Janela_Principal extends javax.swing.JFrame {
     private void Item_Venda_DiretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_Venda_DiretaActionPerformed
         // TODO add your handling code here:
         
-        JOptionPane.showInputDialog(null,"Digite o valor do produto ou serviço");
+        Tela_de_Venda obj = new Tela_de_Venda();
+        JanelaInternaPrincipal.add(obj);
+        obj.setVisible(true);
         
     }//GEN-LAST:event_Item_Venda_DiretaActionPerformed
 
@@ -161,8 +163,8 @@ public class Janela_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Item_Venda_Direta;
+    private javax.swing.JDesktopPane JanelaInternaPrincipal;
     private javax.swing.JMenu Menu_Arquivo;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

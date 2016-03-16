@@ -31,9 +31,10 @@ public class Janela_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Menu_Arquivo = new javax.swing.JMenu();
+        Item_Venda_Direta = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,12 +44,33 @@ public class Janela_Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Arquivo");
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
 
-        jMenuItem1.setText("Venda Direta");
-        jMenu1.add(jMenuItem1);
+        Menu_Arquivo.setText("Arquivo");
+        Menu_Arquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_ArquivoActionPerformed(evt);
+            }
+        });
 
-        jMenuBar1.add(jMenu1);
+        Item_Venda_Direta.setText("Venda Direta");
+        Item_Venda_Direta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Item_Venda_DiretaActionPerformed(evt);
+            }
+        });
+        Menu_Arquivo.add(Item_Venda_Direta);
+
+        jMenuBar1.add(Menu_Arquivo);
 
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
@@ -59,11 +81,11 @@ public class Janela_Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -76,6 +98,17 @@ public class Janela_Principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void Menu_ArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_ArquivoActionPerformed
+        // TODO add your handling code here:   
+    }//GEN-LAST:event_Menu_ArquivoActionPerformed
+
+    private void Item_Venda_DiretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_Venda_DiretaActionPerformed
+        // TODO add your handling code here:
+        
+        JOptionPane.showInputDialog(null,"Digite o valor do produto ou serviço");
+        
+    }//GEN-LAST:event_Item_Venda_DiretaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,9 +160,10 @@ public class Janela_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem Item_Venda_Direta;
+    private javax.swing.JMenu Menu_Arquivo;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

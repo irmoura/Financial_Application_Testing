@@ -47,6 +47,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         Texto_Total = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        Botao_Sair = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Venda Direta");
@@ -91,6 +92,13 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Total");
 
+        Botao_Sair.setText("Sair");
+        Botao_Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botao_SairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,7 +131,9 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Botao_Ok)
-                .addGap(168, 168, 168))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Botao_Sair)
+                .addGap(117, 117, 117))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +146,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Texto_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Texto_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -149,7 +159,9 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                     .addComponent(Texto_Troco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Botao_Ok)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Botao_Ok)
+                    .addComponent(Botao_Sair))
                 .addGap(55, 55, 55))
         );
 
@@ -166,6 +178,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
 
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
         // TODO add your handling code here:
+        
        if(!Texto_Valor_Do_Produto.getText().equals("")){
            valor_do_produto = Double.parseDouble(Texto_Valor_Do_Produto.getText());
        }
@@ -193,9 +206,17 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_Botao_OkActionPerformed
 
+    private void Botao_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_SairActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_Botao_SairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botao_Ok;
+    private javax.swing.JButton Botao_Sair;
     private javax.swing.JTextField Texto_Quantidade;
     private javax.swing.JTextField Texto_Total;
     private javax.swing.JTextField Texto_Troco;

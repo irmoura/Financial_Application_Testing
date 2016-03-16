@@ -5,6 +5,7 @@
  */
 package CODIGOS;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
@@ -48,6 +49,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         Texto_Total = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         Botao_Sair = new javax.swing.JButton();
+        Botao_Limpar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Venda Direta");
@@ -99,6 +101,13 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
             }
         });
 
+        Botao_Limpar.setText("Limpar");
+        Botao_Limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botao_LimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,6 +139,8 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                 .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Botao_Limpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Botao_Ok)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Botao_Sair)
@@ -161,7 +172,8 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Botao_Ok)
-                    .addComponent(Botao_Sair))
+                    .addComponent(Botao_Sair)
+                    .addComponent(Botao_Limpar))
                 .addGap(55, 55, 55))
         );
 
@@ -179,16 +191,14 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
         // TODO add your handling code here:
         
-       if(!Texto_Valor_Do_Produto.getText().equals("")){
+       if(!Texto_Valor_Do_Produto.getText().equals("") && !Texto_Valor_Pago.getText().equals("")){
            valor_do_produto = Double.parseDouble(Texto_Valor_Do_Produto.getText());
+           valor_pago = Double.parseDouble(Texto_Valor_Pago.getText());
        }
        quantidade = Double.parseDouble(Texto_Quantidade.getText());
        if(Texto_Valor_Pago.getText().equals("")){
            JOptionPane.showMessageDialog(null,"Digite o valor pago");
-       }
-       if(!Texto_Valor_Pago.getText().equals("")){
-           valor_pago = Double.parseDouble(Texto_Valor_Pago.getText());
-       }   
+       }  
        
        total = valor_do_produto*quantidade;
        troco = valor_pago - total;
@@ -196,10 +206,13 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
        Texto_Total.setText(""+total);
        
        if(valor_pago >= total){
+            Texto_Valor_Pago.setBackground(Color.white);
             Texto_Troco.setText(""+troco);
        }
        else
        if(valor_pago < total){
+           Texto_Valor_Pago.setBackground(Color.red);
+           Texto_Troco.setText("");
            JOptionPane.showMessageDialog(null,"O valor pago não é suficiente"+
                    "\nFalta : "+(total-valor_pago));
        }
@@ -213,8 +226,20 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_Botao_SairActionPerformed
 
+    private void Botao_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_LimparActionPerformed
+        // TODO add your handling code here:
+        
+        Texto_Quantidade.setText("1");
+        Texto_Total.setText("");
+        Texto_Troco.setText("");
+        Texto_Valor_Do_Produto.setText("");
+        Texto_Valor_Pago.setText("");
+        
+    }//GEN-LAST:event_Botao_LimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Botao_Limpar;
     private javax.swing.JButton Botao_Ok;
     private javax.swing.JButton Botao_Sair;
     private javax.swing.JTextField Texto_Quantidade;

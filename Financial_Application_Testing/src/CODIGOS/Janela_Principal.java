@@ -51,6 +51,7 @@ public class Janela_Principal extends javax.swing.JFrame {
         Item_Fornecedores = new javax.swing.JMenuItem();
         Item_Estoque = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        Item_Ajuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -97,6 +98,15 @@ public class Janela_Principal extends javax.swing.JFrame {
         jMenuBar1.add(Menu_Arquivo);
 
         jMenu2.setText("Sobre");
+
+        Item_Ajuda.setText("Ajuda");
+        Item_Ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Item_AjudaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Item_Ajuda);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -118,6 +128,7 @@ public class Janela_Principal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        Serial serial = new Serial();
         
         KeyboardFocusManager.getCurrentKeyboardFocusManager()
             .addKeyEventDispatcher(new KeyEventDispatcher() {
@@ -129,8 +140,6 @@ public class Janela_Principal extends javax.swing.JFrame {
                         JanelaInternaPrincipal.add(obj);
                         obj.setVisible(true);
                            return true;
-                           
-                           
                      }
                      else
                      if(event.getID() == KeyEvent.KEY_RELEASED 
@@ -144,6 +153,16 @@ public class Janela_Principal extends javax.swing.JFrame {
                         if (opcao == 0){
                             System.exit(0);
                         }
+                        
+                           return true;
+                     }
+                    else
+                     if(event.getID() == KeyEvent.KEY_RELEASED 
+                       && event.getKeyCode() == KeyEvent.VK_F1){
+                        
+                        Tela_Ajuda obj = new Tela_Ajuda();
+                        JanelaInternaPrincipal.add(obj);
+                        obj.setVisible(true);
                         
                            return true;
                      }
@@ -201,11 +220,11 @@ public class Janela_Principal extends javax.swing.JFrame {
             try {
                 String SERIAL = "";   
                 SERIAL = bufferedReader.readLine();//RECEBE O SERIAL DO ARQUIVO
-                if(SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
+                if(SERIAL.equals(serial.serial)){
                     //JOptionPane.showMessageDialog(null,"Serial Válido");
                 }
                 else
-                if(!SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
+                if(!SERIAL.equals(serial.serial)){
                     JOptionPane.showMessageDialog(null,"O sistema será encerrado.",
                             "                            Serial inválido",JOptionPane.WARNING_MESSAGE);
                     System.exit(0);
@@ -234,6 +253,15 @@ public class Janela_Principal extends javax.swing.JFrame {
         obj.setVisible(true);
         
     }//GEN-LAST:event_Item_Venda_DiretaActionPerformed
+
+    private void Item_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_AjudaActionPerformed
+        // TODO add your handling code here:
+        
+        Tela_Ajuda obj = new Tela_Ajuda();
+        JanelaInternaPrincipal.add(obj);
+        obj.setVisible(true);
+        
+    }//GEN-LAST:event_Item_AjudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,6 +313,7 @@ public class Janela_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Item_Ajuda;
     private javax.swing.JMenuItem Item_Clientes;
     private javax.swing.JMenuItem Item_Estoque;
     private javax.swing.JMenuItem Item_Fornecedores;

@@ -41,6 +41,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="Item_Ajuda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ajuda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Item_AjudaActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

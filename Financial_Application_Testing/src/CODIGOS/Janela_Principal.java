@@ -160,6 +160,13 @@ public class Janela_Principal extends javax.swing.JFrame {
         
         try {
             autenticador.createNewFile();//CRIA O ARQUIVO TXT
+            
+            if(autenticador.length() == 0){
+                JOptionPane.showMessageDialog(null,"O Arquivo que contém o serial está vazio");
+                System.exit(0);
+            }
+            
+            //JOptionPane.showMessageDialog(null,""+autenticador.length());
         } catch (IOException ex) {
             Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -192,13 +199,15 @@ public class Janela_Principal extends javax.swing.JFrame {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
             try {
-                String SERIAL = bufferedReader.readLine();//RECEBE O SERIAL DO ARQUIVO
+                String SERIAL = "";   
+                SERIAL = bufferedReader.readLine();//RECEBE O SERIAL DO ARQUIVO
                 if(SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
-                    JOptionPane.showMessageDialog(null,"Serial Válido");
+                    //JOptionPane.showMessageDialog(null,"Serial Válido");
                 }
                 else
                 if(!SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
-                    JOptionPane.showMessageDialog(null,"O sistema será encerrado.","Serial Inválido",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"O sistema será encerrado.",
+                            "                            Serial inválido",JOptionPane.WARNING_MESSAGE);
                     System.exit(0);
                 }
             } catch (IOException ex) {

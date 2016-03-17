@@ -144,6 +144,9 @@ public class Janela_Principal extends javax.swing.JFrame {
         
         this.setExtendedState(MAXIMIZED_BOTH);//DEFINE A JANELA PARA INICIAR MAXIMIZADA
         
+        java.io.File DIRETORIO_DO_PONTO = new java.io.File("C:\\Financial_Application_Testing");
+        DIRETORIO_DO_PONTO.mkdir();//CRIA A PASTA DO PROGRAMA
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void Menu_ArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_ArquivoActionPerformed

@@ -12,7 +12,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -162,6 +164,25 @@ public class Janela_Principal extends javax.swing.JFrame {
             Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        /*FileWriter escrever = null;//INICIO ESCRITA NO ARQUIVO
+        try {
+            escrever = new FileWriter(autenticador);
+        } catch (IOException ex) {
+            Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        PrintWriter gravarArq = new PrintWriter(escrever);
+        
+        {
+              gravarArq.println("THMPV-77D6F-94376-8HGKG-VRDRQ");
+        }
+        
+        try {
+            escrever.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }*/////FIM ESCRITA NO ARQUIVO
+        
         File ARQUIVO = new File("C:\\Financial_Application_Testing\\Autenticador.txt");//PRIMEIRA PARTE PARA LEITURA
         
         FileReader fileReader;
@@ -169,6 +190,20 @@ public class Janela_Principal extends javax.swing.JFrame {
             
             fileReader = new FileReader(ARQUIVO);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            try {
+                String SERIAL = bufferedReader.readLine();//RECEBE O SERIAL DO ARQUIVO
+                if(SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
+                    JOptionPane.showMessageDialog(null,"Serial Válido");
+                }
+                else
+                if(!SERIAL.equals("THMPV-77D6F-94376-8HGKG-VRDRQ")){
+                    JOptionPane.showMessageDialog(null,"O sistema será encerrado.","Serial Inválido",JOptionPane.WARNING_MESSAGE);
+                    System.exit(0);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);

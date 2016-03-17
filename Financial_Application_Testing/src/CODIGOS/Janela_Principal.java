@@ -8,6 +8,13 @@ package CODIGOS;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -144,8 +151,30 @@ public class Janela_Principal extends javax.swing.JFrame {
         
         this.setExtendedState(MAXIMIZED_BOTH);//DEFINE A JANELA PARA INICIAR MAXIMIZADA
         
-        java.io.File DIRETORIO_DO_PONTO = new java.io.File("C:\\Financial_Application_Testing");
-        DIRETORIO_DO_PONTO.mkdir();//CRIA A PASTA DO PROGRAMA
+        java.io.File DIRETORIO = new java.io.File("C:\\Financial_Application_Testing");
+        DIRETORIO.mkdir();//CRIA A PASTA DO PROGRAMA
+        
+        java.io.File autenticador = new java.io.File(DIRETORIO,"Autenticador.txt");
+        
+        try {
+            autenticador.createNewFile();//CRIA O ARQUIVO TXT
+        } catch (IOException ex) {
+            Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        File ARQUIVO = new File("C:\\Financial_Application_Testing\\Autenticador.txt");//PRIMEIRA PARTE PARA LEITURA
+        
+        FileReader fileReader;
+        try {
+            
+            fileReader = new FileReader(ARQUIVO);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Janela_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
         
     }//GEN-LAST:event_formWindowOpened
 

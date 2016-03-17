@@ -258,6 +258,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
         Texto_Troco.setText("");
         Texto_Valor_Do_Produto.setText("");
         Texto_Valor_Pago.setText("");
+        Texto_Valor_Pago.setBackground(Color.white);
         
     }//GEN-LAST:event_Botao_LimparActionPerformed
 

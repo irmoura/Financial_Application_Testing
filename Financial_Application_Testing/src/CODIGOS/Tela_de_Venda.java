@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +23,8 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
                   valor_pago = 0,
                   troco = 0, 
                   quantidade = 0, 
-                  total = 0;
+                  total = 0,
+                  falta = 0;
     
     /**
      * Creates new form Tela_de_Venda
@@ -209,6 +211,7 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
 
     private void Botao_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botao_OkActionPerformed
         // TODO add your handling code here:
+        DecimalFormat deci = new DecimalFormat("0.00");
         
        if(!Texto_Valor_Do_Produto.getText().equals("") && !Texto_Valor_Pago.getText().equals("")){
            valor_do_produto = Double.parseDouble(Texto_Valor_Do_Produto.getText());
@@ -221,19 +224,21 @@ public class Tela_de_Venda extends javax.swing.JInternalFrame {
        
        total = valor_do_produto*quantidade;
        troco = valor_pago - total;
+       falta = total-valor_pago;
        
-       Texto_Total.setText(""+total);
+       Texto_Total.setText(""+deci.format(total));
        
        if(valor_pago >= total){
             Texto_Valor_Pago.setBackground(Color.white);
-            Texto_Troco.setText(""+troco);
+            Texto_Troco.setText(""+deci.format(troco));
+            
        }
        else
        if(valor_pago < total){
            Texto_Valor_Pago.setBackground(Color.red);
            Texto_Troco.setText("");
            JOptionPane.showMessageDialog(null,"O valor pago não é suficiente"+
-                   "\nFalta R$:"+(total-valor_pago),"Pagamento Insuficiente",JOptionPane.WARNING_MESSAGE);
+                   "\nFalta R$:"+deci.format(falta),"Pagamento Insuficiente",JOptionPane.WARNING_MESSAGE);
        }
        
     }//GEN-LAST:event_Botao_OkActionPerformed

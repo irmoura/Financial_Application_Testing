@@ -120,11 +120,13 @@ public class Janela_Principal extends javax.swing.JFrame {
                         JanelaInternaPrincipal.add(obj);
                         obj.setVisible(true);
                            return true;
+                           
+                           
                      }
                      else
                      if(event.getID() == KeyEvent.KEY_RELEASED 
                        && event.getKeyCode() == KeyEvent.VK_ESCAPE){
-                        //JOptionPane.showMessageDialog(null,"Deseja Sair ?");
+                        //JOptionPane.showMessageDialog(null,"Deseja Sair ?");//
                         
                         Object[] options = { "Sim", "Não" };   
                  int opcao = JOptionPane.showOptionDialog(null,"Deseja Sair ?","Tem certeza ?"

@@ -10,5 +10,5 @@ package CODIGOS;
  * @author Mael
  */
 public class Password {
-    String senha = "123";
+    String senha = "12345";
 }
